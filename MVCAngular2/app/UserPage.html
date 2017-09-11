@@ -1,0 +1,34 @@
+﻿<h1>{{welcome}}</h1>
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>Game</th>
+        <th>Platform</th>
+        <th>Release</th>
+    </tr>
+    <tr *ngFor="let game of games; let i=index">
+        <td>{{i + 1}}</td>
+        <td>{{game.game}}</td>
+        <td>{{game.platform}}</td>
+        <td>{{game.release}}</td>
+    </tr>
+</table>
+
+<h1>Server List</h1>
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>Game</th>
+        <th>Platform</th>
+        <th>Release</th>
+    </tr>
+    <tr *ngFor="let game of gamesServer; let i=index">
+        <td>{{i + 1}}</td>
+        <td>{{game.game}}</td>
+        <td>{{game.platform}}</td>
+        <td>{{game.release}}</td>
+    </tr>
+</table>
+
+
+
