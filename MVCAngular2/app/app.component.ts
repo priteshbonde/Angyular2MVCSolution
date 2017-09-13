@@ -63,4 +63,24 @@ export class AppComponent {
             error => this.msg = <any>error);
 
     }
+
+    onSubmit(formData: any): void {
+        this._userService.post(this.apiUrl, formData._value).subscribe(
+            data => {
+                if (data == 1) //Success
+                {
+                    this.msg = "Data successfully added.";
+                    this.LoadUsers();
+                }
+                else {
+                    this.msg = "There is some issue in saving records, please contact to system administrator!"
+                }
+
+                //this.modal.dismiss();
+            },
+            error => {
+                this.msg = error;
+            }
+        );
+    }
 }

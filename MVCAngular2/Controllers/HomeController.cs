@@ -51,6 +51,28 @@ namespace MVCAngular2.Controllers
             return Json(lstGameinfo, JsonRequestBehavior.AllowGet);
         }
 
+
+        public ActionResult AddGame(GameInfo game)
+        {
+            Game gamedb = new Game()
+            {
+                Name = game.game,
+                Description = game.platform,
+                ReleaseDate = Convert.ToDateTime(game.release)
+            };
+
+            gamedb = _iGamesServiceDAL.AddGame(gamedb);
+
+            game = new GameInfo()
+            {
+                game = gamedb.Name,
+                platform = gamedb.Description,
+                release = Convert.ToString(gamedb.ReleaseDate)
+            };
+           
+
+            return Json(game, JsonRequestBehavior.AllowGet) ;
+        }
         //Method for harcoded list of items
         //public JsonResult GetGamesList()
         //{

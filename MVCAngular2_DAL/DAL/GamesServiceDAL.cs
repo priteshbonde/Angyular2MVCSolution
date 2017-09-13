@@ -19,5 +19,16 @@ namespace MVCAngular2_DAL.DAL
             }
             return lstgames;
         }
+
+        public Game AddGame(Game game)
+        {
+            Game res;
+            using (var context = new GamesDBEntities())
+            {
+               res= context.Games.Add(game);
+                
+            }
+            return res;
+        }
     }
 }

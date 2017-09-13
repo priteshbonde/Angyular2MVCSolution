@@ -10,5 +10,6 @@ namespace MVCAngular2_DAL.Interfaces
     public interface IGamesServiceDAL
     {
         List<Game> GetGames();
+        Game AddGame(Game game);
     }
 }

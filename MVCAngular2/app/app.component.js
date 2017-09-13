@@ -51,6 +51,21 @@ var AppComponent = (function () {
         this._userService.get(this.apiUrl)
             .subscribe(function (games) { _this.gamesServer = games; _this.indLoading = false; }, function (error) { return _this.msg = error; });
     };
+    AppComponent.prototype.onSubmit = function (formData) {
+        var _this = this;
+        this._userService.post(this.apiUrl, formData._value).subscribe(function (data) {
+            if (data == 1) {
+                _this.msg = "Data successfully added.";
+                _this.LoadUsers();
+            }
+            else {
+                _this.msg = "There is some issue in saving records, please contact to system administrator!";
+            }
+            //this.modal.dismiss();
+        }, function (error) {
+            _this.msg = error;
+        });
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
