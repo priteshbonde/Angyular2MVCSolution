@@ -9,7 +9,7 @@ export class AppComponent {
     name = 'Angular';
     welcome: string;
     apiUrl: string;
-    //private _userService: AppService ;
+      //private _userService: AppService ;
     indLoading: boolean;
     msg: string;
     games: [{
@@ -64,7 +64,7 @@ export class AppComponent {
 
     }
 
-    onSubmit(formData: any): void {
+        onSubmit(formData: any): void {
         this._userService.post(this.apiUrl, formData._value).subscribe(
             data => {
                 if (data == 1) //Success
